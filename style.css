@@ -1,0 +1,1464 @@
+
+/* ==========================================
+   1. CONFIGURAÇÕES GERAIS DO SITE
+   Cores, fontes e largura do conteúdo
+========================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap');
+
+:root {
+    /* FUNDO PRINCIPAL DO SITE */
+    --background: #faf9f6;
+
+    /* FUNDO DOS CARDS E ELEMENTOS CLAROS */
+    --surface: #ffffff;
+
+    /* COR PRINCIPAL: AZUL-PETRÓLEO */
+    --primary: #193d48;
+
+    /* AZUL MAIS ESCURO PARA HOVER */
+    --primary-dark: #102d36;
+
+    /* COR DOS DETALHES DECORATIVOS */
+    --accent: #a4bcb5;
+
+    /* COR DOS TEXTOS */
+    --text: #26363b;
+
+    /* COR DOS TEXTOS SECUNDÁRIOS */
+    --muted: #778387;
+
+    /* COR DAS BORDAS */
+    --border: #e8e9e5;
+
+    /* FONTES DOS TÍTULOS E TEXTOS */
+    --heading-font: 'Playfair Display', Georgia, serif;
+    --body-font: 'DM Sans', Arial, sans-serif;
+
+    /* LARGURA MÁXIMA DO CONTEÚDO */
+    --container: 1240px;
+}
+
+
+/* RESET: PADRONIZA AS MEDIDAS DOS ELEMENTOS */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* ROLAGEM SUAVE E ESPAÇO PARA O MENU */
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 100px;
+}
+
+
+/* FUNDO, COR E FONTE DO SITE */
+
+body {
+    background: var(--background);
+    color: var(--text);
+    font-family: var(--body-font);
+    -webkit-font-smoothing: antialiased;
+}
+
+
+/* PADRÃO DOS LINKS */
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+/* ACESSIBILIDADE: DESTAQUE AO NAVEGAR PELO TECLADO */
+
+a:focus-visible,
+button:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 5px;
+}
+
+
+/* ==========================================
+   2. CABEÇALHO E MENU
+========================================== */
+
+.header {
+    width: min(100% - 80px, var(--container));
+    min-height: 100px;
+    margin: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+
+    border-bottom: 1px solid var(--border);
+}
+
+
+/* LOGOTIPO EM TEXTO */
+
+.logo {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    flex-shrink: 0;
+}
+
+
+/* NOME DO MÉDICO */
+
+.logo-name {
+    color: var(--primary);
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+
+/* ESPECIALIDADE ABAIXO DO NOME */
+
+.logo-specialty {
+    color: var(--muted);
+    font-size: 9px;
+    letter-spacing: 2px;
+}
+
+
+/* LINKS DO MENU */
+
+.navigation {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+
+/* ESTILO DOS LINKS DE NAVEGAÇÃO */
+
+.navigation > a:not(.button) {
+    color: #59676a;
+    font-size: 12px;
+    transition: color 0.3s ease;
+}
+
+
+/* EFEITO AO PASSAR O MOUSE */
+
+.navigation > a:not(.button):hover {
+    color: var(--primary);
+}
+
+
+/* BOTÕES: ESTILO COMPARTILHADO */
+
+.button {
+    min-height: 48px;
+    padding: 0 22px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+
+    border: 1px solid transparent;
+    border-radius: 3px;
+
+    font-family: var(--body-font);
+    font-size: 12px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background 0.8s ease,
+        color 0.8s ease,
+        transform 0.8s ease;
+}
+
+
+/* PEQUENA ANIMAÇÃO DOS BOTÕES */
+
+.button:hover {
+    transform: translateY(-2px);
+}
+
+
+/* BOTÃO DO CABEÇALHO */
+
+.button-header {
+    min-height: 44px;
+    color: white;
+    background: var(--primary);
+}
+
+
+/* BOTÃO PRINCIPAL */
+
+.button-primary {
+    color: white;
+    background: var(--primary);
+}
+
+
+/* EFEITO AO PASSAR O MOUSE NOS BOTÕES */
+
+.button-header:hover,
+.button-primary:hover {
+    background: var(--primary-dark);
+}
+
+
+/* BOTÃO DO MENU MOBILE: OCULTO NO DESKTOP */
+
+.menu-toggle {
+    display: none;
+}
+
+
+/* ==========================================
+   3. APRESENTAÇÃO PRINCIPAL — HERO
+========================================== */
+
+.hero {
+    width: min(100% - 80px, var(--container));
+    min-height: 650px;
+    margin: auto;
+    padding: 65px 0 85px;
+
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    align-items: center;
+    gap: 80px;
+    animation: fadeUp 0.8s ease both;
+}
+
+
+/* BLOCO DOS TEXTOS */
+
+.hero-content {
+    max-width: 560px;
+    animation: fadeUp 0.8s ease both;
+}
+
+
+/* PEQUENO TÍTULO ACIMA DO H1 */
+
+.eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+
+    color: var(--primary);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+
+/* LINHA DECORATIVA DO EYEBROW */
+
+.eyebrow::before {
+    content: "";
+    width: 28px;
+    height: 1px;
+    background: var(--accent);
+}
+
+
+/* TÍTULO PRINCIPAL */
+
+.hero h1 {
+    margin-top: 27px;
+
+    font-family: var(--heading-font);
+    font-size: clamp(42px, 4.2vw, 62px);
+    font-weight: 400;
+    line-height: 1.15;
+    letter-spacing: -1.5px;
+
+    color: var(--primary-dark);
+}
+
+
+/* SEGUNDA LINHA DO TÍTULO */
+
+.hero h1 span {
+    display: block;
+    color: #78958e;
+}
+
+
+/* TEXTO DESCRITIVO DA APRESENTAÇÃO */
+
+.hero-description {
+    max-width: 450px;
+    margin-top: 25px;
+
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+
+/* GRUPO DOS BOTÕES DO HERO */
+
+.hero-actions {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 27px;
+    margin-top: 35px;
+}
+
+
+/* LINK SECUNDÁRIO */
+
+.text-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    padding-bottom: 5px;
+    border-bottom: 1px solid var(--accent);
+
+    color: var(--primary);
+    font-size: 12px;
+    font-weight: 600;
+
+    transition: opacity 0.3s ease;
+}
+
+
+.text-link:hover {
+    opacity: 0.7;
+}
+
+
+/* FRASE DECORATIVA */
+
+.hero-signature {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 65px;
+}
+
+
+.signature-line {
+    width: 35px;
+    height: 1px;
+    background: var(--accent);
+}
+
+
+.hero-signature p {
+    color: var(--muted);
+    font-family: var(--heading-font);
+    font-size: 15px;
+    font-style: italic;
+}
+
+
+/* ==========================================
+   4. FOTO PRINCIPAL DO MÉDICO
+========================================== */
+
+.hero-visual {
+    position: relative;
+    width: 100%;
+    max-width: 475px;
+    justify-self: end;
+    animation: fadeIn 1s ease both;
+}
+
+
+/* MOLDURA DA FOTO */
+
+.image-frame {
+    position: relative;
+    z-index: 1;
+
+    width: 100%;
+    height: 510px;
+    overflow: hidden;
+
+    background: linear-gradient(145deg, #e9eeea, #d4e0da);
+}
+
+
+/* IMAGEM DENTRO DA MOLDURA */
+
+.doctor-image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+
+    transition: transform 0.7s ease;
+}
+
+
+/* ZOOM SUAVE DA IMAGEM */
+
+.image-frame:hover .doctor-image {
+    transform: scale(1.035);
+}
+
+
+/* TARJA SOBRE A PARTE INFERIOR DA FOTO */
+
+.image-caption {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    left: 20px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+
+    padding: 18px 20px;
+
+    background: rgba(250, 249, 246, 0.95);
+}
+
+
+/* TEXTO PEQUENO DA TARJA */
+
+.caption-label {
+    color: var(--muted);
+    font-size: 9px;
+    letter-spacing: 1.8px;
+}
+
+
+/* TEXTO PRINCIPAL DA TARJA */
+
+.caption-text {
+    color: var(--primary);
+    font-family: var(--heading-font);
+    font-size: 19px;
+}
+
+
+/* CÍRCULO DECORATIVO AO REDOR DA FOTO */
+
+.decorative-circle {
+    position: absolute;
+    top: -30px;
+    right: -30px;
+
+    width: 150px;
+    height: 150px;
+
+    border: 1px solid var(--accent);
+    border-radius: 50%;
+}
+
+
+/* IDENTIFICAÇÃO VISUAL ABAIXO DA FOTO */
+
+.visual-index {
+    position: absolute;
+    right: 0;
+    bottom: -32px;
+
+    color: var(--muted);
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+
+/* ==========================================
+   5. DIFERENCIAIS DO ATENDIMENTO
+========================================== */
+
+.values {
+    width: min(100% - 80px, var(--container));
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    animation: fadeUp 0.8s ease both;
+}
+
+
+/* CADA CARD DE DIFERENCIAL */
+
+.value-card {
+    display: flex;
+    gap: 22px;
+    padding: 35px 30px;
+    border-right: 1px solid var(--border);
+    animation: fadeUp 0.8s ease both;
+}
+
+
+.value-card:first-child {
+    padding-left: 0;
+    animation: fadeUp 0.8s ease both;
+}
+
+
+.value-card:last-child {
+    padding-right: 0;
+    border-right: none;
+}
+
+
+/* NUMERAÇÃO DOS CARDS */
+
+.value-number {
+    color: #8ca69e;
+    font-family: var(--heading-font);
+    font-size: 17px;
+}
+
+
+/* TÍTULO DO DIFERENCIAL */
+
+.value-card h2 {
+    color: var(--primary);
+    font-family: var(--heading-font);
+    font-size: 20px;
+    font-weight: 500;
+    animation: fadeUp 0.8s ease both;
+}
+
+
+/* DESCRIÇÃO DO DIFERENCIAL */
+
+.value-card p {
+    margin-top: 10px;
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.8;
+    animation: fadeUp 0.8s ease both;
+}
+
+
+/* ==========================================
+   6. SOBRE O MÉDICO
+========================================== */
+
+.section-container {
+    width: min(100% - 80px, 1100px);
+    margin: 0 auto;
+    animation: fadeUp 2s ease both;
+}
+
+
+.about {
+    padding-top: 120px;
+    padding-bottom: 120px;
+
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    align-items: center;
+    gap: 90px;
+}
+
+
+/* FOTO DA SEÇÃO SOBRE */
+
+.about-image {
+    height: 470px;
+    overflow: hidden;
+    background: #e4ebe5;
+    animation: fadeUp 0.8s ease both;
+}
+
+
+.about-image img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+
+/* CONTEÚDO SOBRE O MÉDICO */
+
+.about-content h2,
+.trajectory-content h2 {
+    margin-top: 25px;
+
+    color: var(--primary-dark);
+    font-family: var(--heading-font);
+    font-size: clamp(34px, 4vw, 46px);
+    font-weight: 400;
+    line-height: 1.3;
+}
+
+
+.about-content h2 span,
+.trajectory-content h2 span {
+    display: block;
+    color: #78958e;
+}
+
+
+.about-content > p,
+.trajectory-content > p {
+    margin-top: 20px;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.9;
+}
+
+
+.about-content .text-link {
+    margin-top: 25px;
+    animation: fadeUp 0.8s ease both;
+}
+
+
+/* ==========================================
+   7. ÁREAS DE ATUAÇÃO
+========================================== */
+
+.specialties {
+    padding: 100px max(40px, calc((100% - 1240px) / 2));
+    background: #edf1ed;
+    animation: fadeUp 0.8s ease both;
+}
+
+
+/* TÍTULO CENTRAL DA SEÇÃO */
+
+.section-heading {
+    max-width: 650px;
+    margin: 0 auto 55px;
+    text-align: center;
+}
+
+
+.section-heading .eyebrow {
+    justify-content: center;
+}
+
+
+.section-heading h2 {
+    margin-top: 25px;
+    color: var(--primary-dark);
+
+    font-family: var(--heading-font);
+    font-size: clamp(34px, 4vw, 46px);
+    font-weight: 400;
+    line-height: 1.3;
+}
+
+
+.section-heading h2 span {
+    display: block;
+    color: #78958e;
+}
+
+
+.section-heading > p {
+    margin-top: 18px;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+
+/* GRADE DE CARDS */
+
+.specialty-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    animation: fadeUp 0.8s ease both;
+}
+
+
+/* CARD INDIVIDUAL */
+
+.specialty-card {
+    min-height: 220px;
+    padding: 30px;
+
+    background: var(--surface);
+    border: 1px solid #e3e8e2;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+        
+}
+
+
+.specialty-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(25, 61, 72, 0.07);
+}
+
+
+/* NÚMERO DO CARD */
+
+.specialty-number {
+    color: #8ca69e;
+    font-family: var(--heading-font);
+    font-size: 18px;
+    
+}
+
+
+/* TÍTULO DA ÁREA */
+
+.specialty-card h3 {
+    margin-top: 30px;
+    color: var(--primary);
+    font-family: var(--heading-font);
+    font-size: 23px;
+    font-weight: 500;
+    
+}
+
+
+/* DESCRIÇÃO DA ÁREA */
+
+.specialty-card p {
+    margin-top: 12px;
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.8;
+    
+}
+
+
+/* ==========================================
+   8. TRAJETÓRIA E GALERIA DE FOTOS
+========================================== */
+
+.trajectory {
+    padding-top: 120px;
+    padding-bottom: 120px;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 70px;
+    
+}
+
+
+/* LISTA DA TRAJETÓRIA */
+
+.trajectory-list {
+    display: grid;
+    gap: 25px;
+    margin-top: 35px;
+    list-style: none;
+    
+}
+
+
+.trajectory-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+
+/* MARCADOR DA LISTA */
+
+.list-marker {
+    flex-shrink: 0;
+    width: 8px;
+    height: 8px;
+    margin-top: 6px;
+
+    border-radius: 50%;
+    background: var(--accent);
+    
+}
+
+
+/* TÍTULOS DA LISTA */
+
+.trajectory-list h3 {
+    color: var(--primary);
+    font-size: 13px;
+    font-weight: 600;
+    animation: fadeUp 0.8s ease both;
+}
+
+
+/* DESCRIÇÕES DA LISTA */
+
+.trajectory-list p {
+    margin-top: 7px;
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+
+/* GRADE DE FOTOGRAFIAS */
+
+.gallery-preview {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    align-items: end;
+    gap: 15px;
+}
+
+
+/* CADA FOTO DA GALERIA */
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    background: #e4ebe5;
+    
+}
+
+
+.gallery-main {
+    height: 390px;
+}
+
+
+.gallery-secondary {
+    height: 270px;
+}
+
+
+.gallery-item img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+    
+}
+
+
+.gallery-item:hover img {
+    transform: scale(1.04);
+}
+
+
+/* LEGENDA DAS FOTOS */
+
+.gallery-item figcaption {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    padding: 15px 12px;
+
+    color: var(--primary);
+    background: rgba(250, 249, 246, 0.94);
+
+    font-size: 10px;
+    
+}
+
+
+/* ==========================================
+   9. CONTATO E AGENDAMENTO
+========================================== */
+
+.contact {
+    width: min(100% - 80px, var(--container));
+    margin: 0 auto 80px;
+    padding: 65px 55px;
+
+    background: #edf1ed;
+}
+
+
+.contact-content {
+    max-width: 680px;
+}
+
+
+.contact h2 {
+    margin-top: 20px;
+
+    color: var(--primary-dark);
+    font-family: var(--heading-font);
+    font-size: clamp(34px, 4vw, 46px);
+    font-weight: 400;
+    line-height: 1.3;
+    animation: fadeUp 0.8s ease both;
+}
+
+
+.contact h2 span {
+    display: block;
+    color: #78958e;
+    animation: fadeUp 0.8s ease both;
+}
+
+
+.contact p {
+    max-width: 480px;
+    margin-top: 18px;
+
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.9;
+    animation: fadeUp 0.8s ease both;
+}
+
+
+.contact .button {
+    margin-top: 28px;
+    animation: fadeUp 0.8s ease both;
+}
+
+
+
+/* ==========================================
+   10. RODAPÉ
+========================================== */
+
+.footer {
+    width: min(100% - 80px, var(--container));
+    margin: auto;
+    padding: 30px 0;
+
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+
+    border-top: 1px solid var(--border);
+}
+
+
+.footer > p {
+    max-width: 360px;
+    color: var(--muted);
+    font-size: 10px;
+    line-height: 1.8;
+    animation: fadeUp 0.8s ease both;
+}
+
+
+.copyright {
+    width: 100%;
+    padding-top: 15px;
+    border-top: 1px solid var(--border);
+}
+
+
+/* ==========================================
+   11. ANIMAÇÕES DE ENTRADA
+========================================== */
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+/* ==========================================
+   12. TABLETS
+========================================== */
+
+@media (max-width: 1000px) {
+
+    .header {
+        width: min(100% - 48px, var(--container));
+        gap: 20px;
+    }
+
+    .navigation {
+        gap: 16px;
+    }
+
+    .navigation > a:not(.button) {
+        font-size: 11px;
+    }
+
+    .hero {
+        width: min(100% - 48px, var(--container));
+        gap: 40px;
+    }
+
+    .hero h1 {
+        font-size: clamp(38px, 5vw, 52px);
+    }
+
+    .image-frame {
+        height: 440px;
+    }
+
+    .values {
+        width: min(100% - 48px, var(--container));
+    }
+
+    .value-card {
+        padding: 28px 18px;
+        gap: 13px;
+    }
+
+    .value-card h2 {
+        font-size: 17px;
+    }
+
+    .section-container {
+        width: min(100% - 48px, 1100px);
+    }
+
+    .about {
+        gap: 45px;
+    }
+
+    .trajectory {
+        gap: 35px;
+    }
+
+    .contact {
+        width: min(100% - 48px, var(--container));
+    }
+}
+
+
+/* ==========================================
+   13. CELULARES
+========================================== */
+
+@media (max-width: 760px) {
+
+    /* CABEÇALHO MOBILE */
+
+    .header {
+        position: relative;
+        z-index: 10;
+
+        width: calc(100% - 36px);
+        min-height: 82px;
+    }
+
+    .logo-name {
+        font-size: 13px;
+        letter-spacing: 1px;
+    }
+
+    .logo-specialty {
+        font-size: 8px;
+        letter-spacing: 1.5px;
+    }
+
+
+    /* BOTÃO HAMBÚRGUER */
+
+    .menu-toggle {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 6px;
+
+        width: 44px;
+        height: 44px;
+
+        padding: 10px;
+
+        border: 1px solid var(--border);
+        border-radius: 3px;
+        background: var(--surface);
+
+        cursor: pointer;
+    }
+
+    .menu-toggle span {
+        display: block;
+        width: 100%;
+        height: 2px;
+        background: var(--primary);
+        transition: transform 0.3s ease;
+    }
+
+    .menu-toggle[aria-expanded="true"] span:first-child {
+        transform: translateY(4px) rotate(45deg);
+    }
+
+    .menu-toggle[aria-expanded="true"] span:last-child {
+        transform: translateY(-4px) rotate(-45deg);
+    }
+
+
+    /* MENU ABERTO */
+
+    .navigation {
+        position: absolute;
+        top: calc(100% + 1px);
+        right: 0;
+        left: 0;
+
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+
+        padding: 12px 20px 20px;
+
+        background: var(--background);
+        border: 1px solid var(--border);
+        box-shadow: 0 15px 25px rgba(16, 45, 54, 0.06);
+    }
+
+    .navigation.is-open {
+        display: flex;
+    }
+
+    .navigation > a:not(.button) {
+        padding: 15px 0;
+        border-bottom: 1px solid var(--border);
+        font-size: 13px;
+    }
+
+    .navigation .button {
+        margin-top: 15px;
+    }
+
+
+    /* HERO MOBILE */
+
+    .hero {
+        width: calc(100% - 36px);
+
+        min-height: auto;
+        padding: 65px 0 75px;
+
+        grid-template-columns: 1fr;
+        gap: 55px;
+    }
+
+    .hero h1 {
+        margin-top: 22px;
+        font-size: clamp(39px, 10vw, 54px);
+        letter-spacing: -1px;
+    }
+
+    .hero-description {
+        font-size: 13px;
+    }
+
+    .hero-actions {
+        align-items: flex-start;
+        gap: 22px;
+    }
+
+    .hero-signature {
+        margin-top: 40px;
+    }
+
+    .hero-visual {
+        width: calc(100% - 12px);
+        max-width: 460px;
+        justify-self: center;
+    }
+
+    .image-frame {
+        height: clamp(360px, 110vw, 480px);
+    }
+
+    .decorative-circle {
+        width: 100px;
+        height: 100px;
+        top: -18px;
+        right: -12px;
+    }
+
+
+    /* DIFERENCIAIS MOBILE */
+
+    .values {
+        width: calc(100% - 36px);
+        grid-template-columns: 1fr;
+    }
+
+    .value-card,
+    .value-card:first-child,
+    .value-card:last-child {
+        padding: 24px 0;
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .value-card:last-child {
+        border-bottom: none;
+    }
+
+    .value-card h2 {
+        font-size: 19px;
+    }
+
+
+    /* SOBRE O MÉDICO MOBILE */
+
+    .section-container {
+        width: calc(100% - 36px);
+    }
+
+    .about {
+        padding-top: 85px;
+        padding-bottom: 85px;
+
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .about-image {
+        height: 380px;
+    }
+
+    .about-content h2,
+    .trajectory-content h2 {
+        font-size: 36px;
+    }
+
+
+    /* ÁREAS DE ATUAÇÃO MOBILE */
+
+    .specialties {
+        padding: 80px 18px;
+    }
+
+    .section-heading {
+        margin-bottom: 35px;
+    }
+
+    .specialty-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .specialty-card {
+        min-height: auto;
+        padding: 25px;
+    }
+
+    .specialty-card h3 {
+        margin-top: 20px;
+    }
+
+
+    /* TRAJETÓRIA E FOTOS MOBILE */
+
+    .trajectory {
+        padding-top: 85px;
+        padding-bottom: 85px;
+
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .gallery-preview {
+        gap: 10px;
+    }
+
+    .gallery-main {
+        height: 300px;
+    }
+
+    .gallery-secondary {
+        height: 220px;
+    }
+
+
+    /* CONTATO MOBILE */
+
+    .contact {
+        width: calc(100% - 36px);
+        margin-bottom: 55px;
+        padding: 35px 25px;
+    }
+
+    .contact h2 {
+        font-size: 36px;
+    }
+
+
+    /* RODAPÉ MOBILE */
+
+    .footer {
+        width: calc(100% - 36px);
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .footer > p {
+        text-align: left;
+    }
+
+    .copyright {
+        width: 100%;
+    }
+
+}
+
+
+/* ==========================================
+   14. CELULARES MUITO PEQUENOS
+========================================== */
+
+@media (max-width: 380px) {
+
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .image-frame {
+        height: 340px;
+    }
+
+    .about-image {
+        height: 320px;
+    }
+
+    .gallery-main {
+        height: 250px;
+    }
+
+    .gallery-secondary {
+        height: 190px;
+    }
+
+}
+
+
+/* ==========================================
+   15. ACESSIBILIDADE: REDUZIR ANIMAÇÕES
+========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.08ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.08ms !important;
+    }
+
+}
+/* =====================================================
+   16. ANIMAÇÕES CONTROLADAS PELA ROLAGEM DA PÁGINA
+   Cole este bloco NO FINAL do arquivo style.css.
+
+   Importante: ele desativa as animações antigas que
+   eram executadas automaticamente no carregamento.
+===================================================== */
+
+/* Remove as animações antigas de carregamento automático. */
+.hero-content,
+.hero-visual,
+.values,
+.value-card,
+.value-card:first-child,
+.value-card h2,
+.value-card p,
+.section-container,
+.about-image,
+.about-content .text-link,
+.specialties,
+.specialty-grid,
+.trajectory-list h3,
+.contact h2,
+.contact h2 span,
+.contact p,
+.contact .button,
+.footer > p {
+    animation: none !important;
+}
+
+/* Estado inicial dos elementos observados pelo JavaScript. */
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition:
+        opacity 700ms ease,
+        transform 700ms ease;
+    will-change: opacity, transform;
+}
+
+/* Estado final: elemento aparece quando entra na tela. */
+.scroll-reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Pequenas variações para as imagens, sem exagerar no movimento. */
+.about-image.scroll-reveal,
+.gallery-item.scroll-reveal {
+    transform: translateY(32px) scale(0.985);
+}
+
+.about-image.scroll-reveal.is-visible,
+.gallery-item.scroll-reveal.is-visible {
+    transform: translateY(0) scale(1);
+}
+
+/* Em telas menores, reduz a distância do movimento. */
+@media (max-width: 760px) {
+    .scroll-reveal {
+        transform: translateY(20px);
+        transition-duration: 600ms;
+    }
+
+    .about-image.scroll-reveal,
+    .gallery-item.scroll-reveal {
+        transform: translateY(22px) scale(0.99);
+    }
+}
+
+/* Respeita a preferência de acessibilidade do visitante. */
+@media (prefers-reduced-motion: reduce) {
+    .scroll-reveal,
+    .scroll-reveal.is-visible,
+    .about-image.scroll-reveal,
+    .about-image.scroll-reveal.is-visible,
+    .gallery-item.scroll-reveal,
+    .gallery-item.scroll-reveal.is-visible {
+        opacity: 1;
+        transform: none;
+        transition: none;
+        will-change: auto;
+    }
+}
